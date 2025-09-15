@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sakthi Dental Clinic</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background:#fff;
+      color:#1f2937;
+      line-height:1.6;
+    }
+    header {
+      background:#008080;
+      color:#fff;
+      padding:0.5rem 2rem;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      flex-wrap:wrap;
+    }
+    header img {height:60px;}
+    header nav a {
+      margin:0 1rem;
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      transition:color .3s;
+    }
+    header nav a:hover {color:#fca311;}
+    .header-contact {
+      display:flex;
+      align-items:center;
+      gap:1.5rem;
+      font-size:0.9rem;
+      font-weight:500;
+    }
+    .header-contact a {
+      color:#fff;
+      text-decoration:none;
+      display:flex;
+      align-items:center;
+      gap:0.4rem;
+      transition:color 0.3s;
+    }
+    .header-contact a:hover {color:#fca311;}
+    .header-contact span {font-size:1.1rem; font-weight:600;}
+
+    /* Hero Section */
+    .hero {position:relative; height:80vh; overflow:hidden; display:flex; align-items:center; justify-content:center; color:#fff; text-align:center;}
+    .hero-slide {position:absolute; width:100%; height:100%; background-size:cover; background-position:center; opacity:0; animation:slideShow 15s infinite;}
+    .hero-slide:nth-child(1){background-image:url('assets/Banner-Img-1.jpg'); animation-delay:0s;}
+    .hero-slide:nth-child(2){background-image:url('assets/Banner-Img-2.jpg'); animation-delay:5s;}
+    .hero-slide:nth-child(3){background-image:url('assets/Banner-Img-3.jpg'); animation-delay:10s;}
+    @keyframes slideShow {0%{opacity:0;} 10%{opacity:1;} 30%{opacity:1;} 40%{opacity:0;} 100%{opacity:0;}}
+    .hero-content {position:relative; z-index:2; max-width:700px; padding:2rem; background:rgba(0,0,0,0.4); border-radius:12px;}
+    .hero-content h1 {font-size:2.5rem; margin-bottom:1rem;}
+    .hero-content p {margin-bottom:2rem; font-size:1.1rem;}
+    
+    .btn {padding:.75rem 1.5rem; border:none; border-radius:8px; font-weight:600; cursor:pointer; margin:.5rem; transition:all .3s;}
+    .btn-primary {background:#fca311; color:#1f2937;}
+    .btn-primary:hover {background:#e1900b;}
+    .btn-secondary {background:#fff; color:#008080;}
+    .btn-secondary:hover {background:#f8f9fa;}
+
+    section {padding:4rem 2rem;}
+    .grid {display:grid; gap:2rem;}
+    .services, .amenities, .team {grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
+    
+    .card {background:#f8f9fa; padding:2rem; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.05); transition:transform .3s; text-align:center;}
+    .card:hover {transform:translateY(-5px);}
+    .card img {height:160px; margin-bottom:1rem; object-fit:contain;}
+    .team .card img {width:100%; height:280px; object-fit:cover; border-radius:12px; margin-bottom:1rem;}
+    
+    /* Animation Keyframes */
+    @keyframes fadeIn {from{opacity:0; transform:translateY(15px);} to{opacity:1; transform:translateY(0);}}
+    @keyframes slideUp {from{transform:translateY(20px); opacity:0;} to{transform:translateY(0); opacity:1;}}
+
+    /* Specific Section Styles */
+    .assurance-banner {background:#f8f9fa; padding:3rem 1rem; text-align:center;}
+    .assurance-content h2 {font-size:2.2rem; font-weight:800; color:#1f2937; margin-bottom:1rem;}
+    .assurance-content h2 span { background:linear-gradient(90deg, #008080, #fca311); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .assurance-content p {font-size:1.2rem; color:#514c4c; font-weight:500; animation:fadeIn 2s ease-in-out;}
+    
+    #testimonials blockquote {font-style:italic; background:#fff; border-left:4px solid #008080; padding:1rem; margin-bottom:1rem; border-radius:8px; animation:slideUp 1s ease;}
+
+    #contact { background: #f8f9fa; }
+    .about-page { padding: 4rem 2rem; border-radius: 16px; margin: 0 auto; max-width: 1100px; }
+    .about-title { font-size: 2.4rem; text-align: center; margin-bottom: 0.5rem; font-weight: 800; color: #1f2937; }
+    .about-title span { background: linear-gradient(90deg, #008080, #fca311); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .about-subtitle { text-align: center; font-size: 1.3rem; font-weight: 600; color: #6b7280; margin-bottom: 2rem; }
+    .about-content p { margin-bottom: 1rem; font-size: 1.1rem; color: #374151; line-height: 1.8; }
+    .vision-mission { background: #fff; padding: 2rem; margin: 2rem 0; border-left: 5px solid #008080; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+    .vision-mission h3 { margin-bottom: 1rem; font-size: 1.6rem; color: #008080; }
+    .vision-mission p { margin-bottom: 1rem; font-size: 1.05rem; color: #444; }
+    .team-section { margin-top: 2rem; }
+    .team-section h3 { font-size: 1.8rem; color: #fca311; margin-bottom: 1rem; text-align: center; }
+    .team-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; padding: 0; }
+    .team-list li { background: #fff; padding: 1rem; border-radius: 10px; text-align: center; font-size: 1.05rem; font-weight: 600; color: #1f2937; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: transform .3s ease, background .3s ease; }
+    .team-list li:hover { transform: translateY(-5px); background: #fff9eb; }
+    .team-list span { display: block; font-size: 0.9rem; color: #6b7280; font-weight: 400; }
+    
+    footer {background:#1f2937; color:#fff; padding:2rem; text-align:center;}
+    
+    .social-links {display:flex; justify-content:center; gap:1rem; margin-top:1.5rem;}
+    .social-links a { width:45px; height:45px; display:flex; align-items:center; justify-content:center; border-radius:50%; font-size:1.2rem; color:#fff; transition:transform 0.3s ease; }
+    .social-links a:hover {transform:scale(1.1);}
+    .social-links .instagram {background:#E1306C;}
+    .social-links .facebook {background:#1877F2;}
+    .social-links .youtube {background:#FF0000;}
+
+    /* --- CSS FOR MODALS --- */
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        display: none; /* Initially hidden */
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+    }
+    .modal-content {
+        background: #fff;
+        padding: 2.5rem;
+        border-radius: 12px;
+        width: 90%;
+        max-width: 500px;
+        position: relative;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    .modal-content h2 {
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+        color: #008080;
+    }
+    .modal-close-btn {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #888;
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+    .modal-close-btn:hover { color: #333; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: #374151;
+    }
+    .form-group input, .form-group textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1rem;
+    }
+    .form-group textarea {
+        resize: vertical;
+        min-height: 100px;
+    }
+    .form-row {
+        display: flex;
+        gap: 1rem;
+    }
+    .form-row .form-group {
+        flex: 1;
+    }
+
+    /* Responsive Design */
+    @media(max-width:900px){.header-contact {flex-direction:column; gap:0.5rem; margin-top:0.5rem;} .header-contact span{font-size:0.9rem;}}
+    @media(max-width:768px){header nav{display:none;} .hero-content h1{font-size:1.6rem;}}
+    @media (max-width: 500px) { .form-row { flex-direction: column; gap: 0; } }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="./SDC Logo.png" alt="Sakthi Dental Clinic Logo">
+    <nav>
+      <a href="#about">About Us</a>
+      <a href="#services">Treatments</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-contact">
+      <a href="mailto:info@sakthidentalclinic.in">📧 <span>info@sakthidentalclinic.in</span></a>
+      <a href="tel:+919862890897">📞 <span>+91 98628 90897</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-slide"></div>
+      <div class="hero-slide"></div>
+      <div class="hero-slide"></div>
+      <div class="hero-content">
+        <h1>Specialized Dental Care for Women, Children & Families</h1>
+        <p>Experience compassionate, expert-led dental services tailored to your needs—all in a modern and welcoming environment.</p>
+        <button class="btn btn-primary" id="appointmentBtn">Fix an Appointment</button>
+        <button class="btn btn-secondary" id="emergencyBtn">Emergency Dental Support</button>
+      </div>
+    </section>
+
+    <section class="assurance-banner">
+      <div class="assurance-content">
+        <h2><span>You are always in safe hands.</span></h2>
+        <p>We are ready to help, anytime.</p>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>Why Choose Sakthi Dental Clinic?</h2>
+      <div class="grid services">
+        <div class="card"><h3>All-in-One Care</h3><p>From general dentistry to specialized treatments, everything under one roof.</p></div>
+        <div class="card"><h3>Experienced Doctors</h3><p>Our dentists are professionally trained and committed to personalized patient care.</p></div>
+        <div class="card"><h3>Patient-Centric Approach</h3><p>We prioritize comfort, safety, and transparency in every treatment we offer.</p></div>
+        <div class="card"><h3>Technology-Driven</h3><p>Modern tools and equipment ensure precision and safety.</p></div>
+      </div>
+    </section>
+
+    <section id="services">
+      <h2>Explore Our Services</h2>
+      <div class="grid services">
+        <div class="card"><img src="./Aligner.png" alt="Aligner"><h3>Aligners</h3><p>Clear, removable aligners for discreet teeth straightening.</p></div>
+        <div class="card"><img src="./Artificial Complete Denture.png" alt="Artificial Complete Denture"><h3>Artificial Complete Denture</h3><p>Full mouth replacement to restore confidence and function.</p></div>
+        <div class="card"><img src="./Fixed Partial Denture.png" alt="Fixed Partial Denture"><h3>Fixed Partial Denture</h3><p>Bridge restorations to replace missing teeth effectively.</p></div>
+        <div class="card"><img src="./Flap-surgery.png" alt="Flap Surgery"><h3>Flap Surgery</h3><p>Advanced periodontal treatment to restore gum health.</p></div>
+        <div class="card"><img src="./Impants.png" alt="Dental Implants"><h3>Dental Implants</h3><p>Permanent replacement solution for missing teeth.</p></div>
+        <div class="card"><img src="./Bleaching.png" alt="Teeth Whitening"><h3>Teeth Whitening</h3><p>Cosmetic whitening treatments for a brighter smile.</p></div>
+        <div class="card"><img src="./Laser-Surgery.png" alt="Laser Dentistry"><h3>Laser Dentistry</h3><p>Modern, painless laser treatments for precision care.</p></div>
+        <div class="card"><img src="./Teeth Extraction.png" alt="Tooth Extraction"><h3>Tooth Extraction</h3><p>Safe and painless removal of impacted or decayed teeth.</p></div>
+        <div class="card"><img src="./Tooth-Filling.jpg" alt="Tooth Filling"><h3>Tooth Filling</h3><p>Composite fillings for cavity treatment and tooth restoration.</p></div>
+        <div class="card"><img src="./Teeth Cleaning.png" alt="Teeth Cleaning"><h3>Teeth Cleaning</h3><p>Preventive care to remove plaque and protect gums.</p></div>
+        <div class="card"><img src="./Orthodonic-Treatment.png" alt="Orthodontic Treatment"><h3>Orthodontic Treatment</h3><p>Braces and aligners to straighten and align teeth.</p></div>
+      </div>
+      <div style="text-align: center;">
+        <a href="treatmets.html">
+          <button class="btn btn-primary" style="margin-top:2rem;">View Full List of Treatments</button>
+        </a>
+      </div>
+    </section>
+
+    <section id="testimonials">
+      <h2>What Our Patients Say</h2>
+      <div class="testimonials">
+        <blockquote>“The doctors are extremely kind and attentive. My braces treatment is progressing really well. 5/5.” – <b>Manisha M</b></blockquote>
+        <blockquote>“I got my teeth cleaned and whitened here, and the results were amazing. The staff is so humble and professional. I’ve recommended Sakthi Dental Clinic to my entire family.” — <b>Mr. Arun Kumar</b></blockquote>
+        <blockquote>“Their attention to detail is outstanding. My daughter needed braces and the entire process from consultation to regular follow ups has been so smooth. Really grateful for their care.” — <b>Mrs. Revathi S.</b></blockquote>
+      </div>
+    </section> 
+
+    <section class="amenities">
+      <h2>Clinic Facilities</h2>
+      <div class="grid amenities">
+        <div class="card"><img src="./Icon-city-center.png" alt="City Center"><p>Convenient central location</p></div>
+        <div class="card"><img src="./Icon-doctors.png" alt="Doctors"><p>Experienced doctors available</p></div>
+        <div class="card"><img src="./Icon-parking.png" alt="Parking"><p>Hassle-free parking</p></div>
+        <div class="card"><img src="./Icon-pickup.png" alt="Pickup"><p>Pickup & drop-off support</p></div>
+        <div class="card"><img src="./Icon-wheel-chair.png" alt="Wheelchair Access"><p>Wheelchair access</p></div>
+      </div>
+    </section>
+    
+    <section id="team">
+      <h2>Meet Our Doctors</h2>
+      <div class="grid team">
+        <div class="card"><img src="Dr Anupriya.jpg" alt="Dr. Anupriya"><h3>Dr. Anupriya</h3><p>Founder</p></div>
+        <div class="card"><h3>Dr. Ananya Iyer</h3><p>Prosthodontist</p></div>
+        <div class="card"><h3>Dr. Meera Subramanian</h3><p>Endodontist</p></div>
+      </div>
+    </section>
+
+    <section id="contact" class="about-page">
+      <div class="about-container">
+        <h2 class="about-title">✨ Get to Know <span>Dr. Anupriya & The Team</span></h2>
+        <p class="about-subtitle">Your Trusted Partner in Dental Care</p>
+        <div class="about-content">
+            <p>Bringing over <b>20 years of expertise</b>, Dr. Anupriya stands as a leading figure in modern dentistry at Hosur... (content truncated for brevity)</p>
+        </div>
+        <div class="vision-mission">
+            <h3>🌟 Our Vision & Mission</h3>
+            <p>At Sakthi Dental Clinic, our mission is to redefine oral healthcare... (content truncated for brevity)</p>
+        </div>
+        <div class="team-section">
+          <h3>👩‍⚕️ Meet Our Team of Doctors</h3>
+          <ul class="team-list">
+            <li>🦷 Dr. Anupriya <span>(Founder)</span></li>
+            <li>🦷 Dr. Ananya Iyer <span>(Prosthodontist)</span></li>
+            <li>🦷 Dr. Meera Subramanian <span>(Endodontist)</span></li>
+            <li>🦷 Dr. Arvind Kumar <span>(Dental Surgeon)</span></li>
+            <li>🦷 Dr. Sneha N <span>(Orthodontist)</span></li>
+            <li>🦷 Dr. Srinivas Rohit Ramanujam <span>(Implantologist)</span></li>
+            <li>🦷 Dr. Balu <span>(Laser Surgeon)</span></li>
+            <li>🦷 Dr. Vikram Raj Kishore <span>(Aligners Partner)</span></li>
+            <li>🦷 Dr. Ajay Jumar <span>(Oral & Maxillofacial Surgeon)</span></li>
+          </ul>
+        </div>
+        <div style="text-align:center; margin-top:4rem;">
+          <h3>Reach Us</h3>
+          <p><strong>Address:</strong> B2/8, SBM Layout, Anthivadi, Hosur, Tamil Nadu 635109, India</p>
+          <p><strong>Email:</strong> info@sakthidentalclinic.in</p>
+          <p><strong>Phone:</strong> +91 9862890897 / +91 9363298118</p>
+          <p><strong>Timings:</strong> 9am - 8pm (All Days)</p>
+          <div class="social-links">
+            <a href="https://instagram.com" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://youtube.com" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <img src="assets/SDC Logo.png" alt="Sakthi Dental Clinic Logo" style="height:50px; margin-bottom:1rem;">
+    <p>&copy; 2025 Sakthi Dental Clinic | All rights reserved</p>
+  </footer>
+
+  <div id="appointmentModal" class="modal-overlay">
+      <div class="modal-content">
+          <span id="closeAppointmentModalBtn" class="modal-close-btn">&times;</span>
+          <h2>Book an Appointment</h2>
+          <form id="appointmentForm">
+              <div class="form-group">
+                  <label for="appointmentName">Full Name</label>
+                  <input type="text" id="appointmentName" required>
+              </div>
+              <div class="form-group">
+                  <label for="appointmentPhone">Phone Number</label>
+                  <input type="tel" id="appointmentPhone" required>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                    <label for="appointmentDate">Preferred Date</label>
+                    <input type="date" id="appointmentDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentTime">Preferred Time</label>
+                    <input type="time" id="appointmentTime" required>
+                </div>
+              </div>
+              <div class="form-group">
+                  <label for="appointmentDescription">Reason for visit (Optional)</label>
+                  <textarea id="appointmentDescription"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Request Appointment</button>
+          </form>
+      </div>
+  </div>
+
+  <div id="emergencyModal" class="modal-overlay">
+      <div class="modal-content">
+          <span id="closeEmergencyModalBtn" class="modal-close-btn">&times;</span>
+          <h2>Emergency Booking Request</h2>
+          <form id="emergencyForm">
+              <div class="form-group">
+                  <label for="emergencyName">Full Name</label>
+                  <input type="text" id="emergencyName" required>
+              </div>
+              <div class="form-group">
+                  <label for="emergencyPhone">Phone Number</label>
+                  <input type="tel" id="emergencyPhone" required>
+              </div>
+              <div class="form-group">
+                  <label for="emergencyDescription">Describe your emergency</label>
+                  <textarea id="emergencyDescription" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Request</button>
+          </form>
+      </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // --- Elements for Appointment Modal ---
+      const appointmentModal = document.getElementById('appointmentModal');
+      const openAppointmentBtn = document.getElementById('appointmentBtn');
+      const closeAppointmentBtn = document.getElementById('closeAppointmentModalBtn');
+      const appointmentForm = document.getElementById('appointmentForm');
+
+      // --- Elements for Emergency Modal ---
+      const emergencyModal = document.getElementById('emergencyModal');
+      const openEmergencyBtn = document.getElementById('emergencyBtn');
+      const closeEmergencyBtn = document.getElementById('closeEmergencyModalBtn');
+      const emergencyForm = document.getElementById('emergencyForm');
+
+      // --- Generic Modal Logic ---
+      const setupModal = (modal, openBtn, closeBtn) => {
+        const open = () => modal.style.display = 'flex';
+        const close = () => modal.style.display = 'none';
+        
+        openBtn.addEventListener('click', open);
+        closeBtn.addEventListener('click', close);
+        window.addEventListener('click', (event) => {
+          if (event.target === modal) {
+            close();
+          }
+        });
+        return close; // Return the close function
+      };
+
+      const closeAppointmentModal = setupModal(appointmentModal, openAppointmentBtn, closeAppointmentBtn);
+      const closeEmergencyModal = setupModal(emergencyModal, openEmergencyBtn, closeEmergencyBtn);
+
+      // --- Handle Appointment Form Submission ---
+      appointmentForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const formData = {
+          name: document.getElementById('appointmentName').value,
+          phone: document.getElementById('appointmentPhone').value,
+          date: document.getElementById('appointmentDate').value,
+          time: document.getElementById('appointmentTime').value,
+          description: document.getElementById('appointmentDescription').value,
+          timestamp: new Date().toLocaleString('en-IN')
+        };
+        const existingBookings = JSON.parse(localStorage.getItem('regularAppointments')) || [];
+        existingBookings.push(formData);
+        localStorage.setItem('regularAppointments', JSON.stringify(existingBookings));
+        alert('Thank you! Your appointment request has been submitted. We will contact you to confirm.');
+        appointmentForm.reset();
+        closeAppointmentModal();
+      });
+
+      // --- Handle Emergency Form Submission ---
+      emergencyForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const formData = {
+          name: document.getElementById('emergencyName').value,
+          phone: document.getElementById('emergencyPhone').value,
+          description: document.getElementById('emergencyDescription').value,
+          timestamp: new Date().toLocaleString('en-IN')
+        };
+        const existingBookings = JSON.parse(localStorage.getItem('emergencyBookings')) || [];
+        existingBookings.push(formData);
+        localStorage.setItem('emergencyBookings', JSON.stringify(existingBookings));
+        alert('Thank you! Your emergency request has been submitted. We will contact you shortly.');
+        emergencyForm.reset();
+        closeEmergencyModal();
+      });
+    });
+  </script>
+
+</body>
+</html>
