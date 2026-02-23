@@ -1,25 +1,21 @@
 # 🦷 Dental Clinic Website
 
-A **static dental clinic website** built using **HTML, CSS, and images** to showcase dental services, treatments, and clinic information.
+A **responsive, static website** showcasing the services and features of a dental clinic — built with **HTML, CSS, and images** and deployed on **GitHub Pages**.
 
-This project provides a responsive, visually appealing front-end web presence for a dental clinic — perfect for learning, customization, or demo purposes.
+🔗 **Live Demo:** [https://raghu356-dot.github.io/dental-clinic/](https://raghu356-dot.github.io/dental-clinic/)
 
 ---
 
 ## 📌 Project Overview
 
-This repository contains a simple **static website** that displays information about dental treatments, services, and clinic features.
+This project is a **front-end only dental clinic website** that introduces visitors to:
 
-Visitors can browse service sections such as:
+* Dental procedures and treatments
+* Clinic facilities and features
+* Visual showcase of services through images
+* Informational content for prospective patients
 
-* Dental procedures (Implants, Tooth Filling, Root Canal, etc.)
-* Cosmetic treatments (Bleaching, Veneer, Pediatric dentistry)
-* Clinic facilities and staff
-* Contact or About pages (if added)
-
-There is **no backend server or database** — it is intended to be deployed as a static site.
-
-([GitHub][1])
+There’s **no backend server or database** — all pages are static and designed to be visually appealing and easy to navigate.
 
 ---
 
@@ -28,63 +24,100 @@ There is **no backend server or database** — it is intended to be deployed as 
 ```
 dental-clinic/
 │
-├── index.html                    # Main homepage of the dental clinic
-├── treatmets.html                # Treatments/services page
-├── Banner-Img-1.jpg              # Banner image 1
-├── Banner-Img-2.jpg              # Banner image 2
-├── Banner-Img-3.jpg              # Banner image 3
-├── Aligner.png                   # Treatment/feature image
-├── Artificial Complete Denture.png   # Treatment image
-├── Bleaching.png                 # Treatment image
-├── Dr Anupriya.jpg               # Doctor image
-├── Fixed Partial Denture.png     # Treatment image
-├── Flap-surgery.png              # Treatment image
-├── Icon-city-center.png          # Facility icon
-├── Icon-doctors.png              # Facility icon
-├── Icon-parking.png              # Facility icon
-├── Icon-pickup.png               # Facility icon
-├── Icon-wheel-chair.png          # Facility icon
-├── Impants.png                   # Treatment image
-├── Laser-Surgery.png             # Treatment image
-├── Orthodonic-Treatment.png      # Treatment image
-├── Pediatric-dentistry.png       # Treatment image
-├── Root Canal Treatment.png      # Treatment image
+├── index.html                    # Home page with banners and navigation
+├── treatmets.html                # Treatments & services page
+│
+├── Banner-Img-1.jpg              # Homepage banner image
+├── Banner-Img-2.jpg              # Homepage banner image
+├── Banner-Img-3.jpg              # Homepage banner image
+│
+├── Aligner.png                   # Service image
+├── Artificial Complete Denture.png   # Service image
+├── Bleaching.png                 # Service image
+├── Impants.png                   # Service image
+├── Laser-Surgery.png             # Service image
+├── Orthodonic-Treatment.png      # Service image
+├── Pediatric-dentistry.png       # Service image
+├── Root Canal Treatment.png      # Service image
+├── Teeth Cleaning.png            # Service image
+├── Teeth Extraction.png          # Service image
+├── Tooth-Filling.jpg             # Service image
+├── Veneer Treatment.jpg          # Service image
+├── Wisdom Teeth Removal.png      # Service image
+│
+├── Icon-city-center.png          # Feature icon
+├── Icon-doctors.png              # Feature icon
+├── Icon-parking.png              # Feature icon
+├── Icon-pickup.png               # Feature icon
+├── Icon-wheel-chair.png          # Feature icon
+│
+├── Dr Anupriya.jpg               # Clinic doctor image
 ├── SDC Logo.png                  # Clinic logo
-├── Teeth Cleaning.png            # Treatment image
-├── Teeth Extraction.png          # Treatment image
-├── Tooth-Filling.jpg             # Treatment image
-├── Veneer Treatment.jpg          # Treatment image
-├── Wisdom Teeth Removal.png      # Treatment image
+│
+└── README.md                     # Project documentation
 ```
-
-([GitHub][1])
 
 ---
 
 ## 🎯 Features
 
-* 📍 **Responsive CSS layout** – Works in modern browsers.
-* 🖼 **Static content** – Showcases dental services with icons and graphics.
-* 🦷 **Multiple service sections** – Each treatment has its own visual.
-* 📄 **Clean HTML structure** – Easy to customize and expand.
+✔️ Fully **static and responsive website**
+✔️ Clean layout with banners and visual icons
+✔️ Dedicated **services page** for dental treatments
+✔️ Easy to host on static hosting platforms
+✔️ Visually informative for clinic visitors
 
 ---
 
-## 📝 Usage
+## 🖥️ Technologies Used
 
-To view the website locally:
+| Technology   | Purpose                          |
+| ------------ | -------------------------------- |
+| HTML         | Page structure                   |
+| CSS          | Styling and layout               |
+| Images       | Visual content and service icons |
+| GitHub Pages | Hosting & deployment             |
 
-1. **Download or clone the repository:**
+---
+
+## 🚀 View the Deployed Website
+
+You can explore the **live site** here:
+
+🔗 [https://raghu356-dot.github.io/dental-clinic/](https://raghu356-dot.github.io/dental-clinic/)
+
+Feel free to share it with others or use it as a portfolio project!
+
+---
+
+## 📝 How to Use Locally
+
+To run the website on your own machine:
+
+1. **Clone the repository:**
 
    ```bash
    git clone https://github.com/Raghu356-dot/dental-clinic.git
    ```
 
-2. **Open in a browser:**
+2. **Open the site:**
 
-   * Navigate into the `dental-clinic` folder.
-   * Double-click `index.html`, or open it with a modern browser (Chrome, Firefox, Edge).
+   * Navigate into the folder
+   * Open `index.html` in your browser
 
-This will load the full clinic website locally.
+Your clinic site will display in a local browser window.
 
+---
+
+## 🚀 Deployment Options
+
+Since this is a static HTML/CSS project, you can host it on:
+
+✔️ **GitHub Pages**
+✔️ **Netlify**
+✔️ **Vercel**
+✔️ **Firebase Hosting**
+✔️ Any static hosting platform
+
+Just upload the project folder and set the root to `index.html`.
 
